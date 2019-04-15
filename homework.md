@@ -24,7 +24,7 @@ Use the supplied data as the source of data to answer the questions. Copy the SQ
 
 1.  Return ALL the data in the 'movies' table.
 
-
+SELECT * FROM movies;
 
 id |                title                | year | show_time
 ----+-------------------------------------+------+-----------
@@ -54,6 +54,8 @@ id |                title                | year | show_time
 
 2.  Return ONLY the name column from the 'people' table
 
+SELECT name FROM people;
+
 name          
 ------------------------
 Homer Simpson
@@ -80,7 +82,7 @@ Apu Nahasapeemapetilon
 
 3.  Oops! Someone spelled Krusty The Clown's name wrong! Change it to reflect the proper spelling (Crusty should be Krusty).
 
-
+UPDATE people SET name = 'Krusty The Clown' WHERE id = 13;
 
 UPDATE 1
  id |          name          
@@ -107,6 +109,8 @@ UPDATE 1
 
 4.  Return ONLY Homer Simpson's name from the 'people' table.
 
+SELECT name FROM people WHERE id =1;
+
 name      
 ---------------
 Homer Simpson
@@ -115,6 +119,8 @@ Homer Simpson
 
 
 5.  The cinema is showing 'Batman Begins', but Batman is DC, not Marvel! Delete the entry from the 'movies' table.
+
+DELETE FROM movies WHERE id = 9;
 
 
 DELETE 1
@@ -144,6 +150,8 @@ DELETE 1
 
 6.  We forgot one of the main characters! Add Bart Simpson to the 'people' table
 
+INSERT INTO people (name) VALUES ('Bart Simpson');
+
 INSERT 0 1
  id |          name          
 ----+------------------------
@@ -170,6 +178,8 @@ INSERT 0 1
 
 7.  Eric Cartman has decided to hijack our movie evening, Remove him from the table of people.
 
+DELETE FROM people WHERE id = 11;
+
 DELETE 1
  id |          name          
 ----+------------------------
@@ -195,6 +205,8 @@ DELETE 1
 
 
 8.  The cinema has just heard that they will be holding an exclusive midnight showing of 'Avengers: Infinity War'!! Create a new entry in the 'movies' table to reflect this.
+
+INSERT INTO movies (title, year, show_time) VALUES ('Avengers: Infinity War', 2019, '00:00');
 
 
 INSERT 0 1
@@ -224,6 +236,9 @@ INSERT 0 1
 
 
 9.  The cinema would like to make the Iron Man movies a triple billing. Find out the show time of "Iron Man 2" and set the show time of "Iron Man 3" to start two hours later.
+
+SELECT show_time FROM movies WHERE id = 3;
+UPDATE movies SET show_time = '20:45' WHERE id = 7;
 
 UPDATE 1
  id |                title                | year | show_time
